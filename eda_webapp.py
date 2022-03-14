@@ -2,12 +2,9 @@
 # coding: utf-8
 
 # In[1]:
-
-
 import pandas as pd
 import streamlit as st
 import numpy as np
-import seaborn as sns
 import plotly.express as px
 import plotly.figure_factory as ff
 
