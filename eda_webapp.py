@@ -128,7 +128,7 @@ try:
     selection_x=cont2.selectbox("Select x coordinate (categorical):",options=feas)
     selection_y=cont2.selectbox("Select y coordinate (numerical):",options=list(set(list(num_vars)).difference(feas)))
     box=px.box(df,x=selection_x,y=selection_y)   #list(set(list(num_vars)).difference(feas)) is used to get  
-    for numerical coordinate # only the features with more than 15 unique categories in numerical y coordinate
+    #features with more than 15 unique categories in numerical y coordinate
     cont2.plotly_chart(box)
     
 
