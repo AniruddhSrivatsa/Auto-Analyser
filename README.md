@@ -1,7 +1,7 @@
-# EDA-webapp
-Automated-EDA
+# Auto-Analyser
+Automated EDA tool (Exploratory Data Analysis) made with Python and Streamlit.
 
-This app provides you with all the basic details and visualizations you need to get an abstract idea about the dataset.
-You just have to upload a dataset and let the rest be taken care by the web app.
+Auto-Analyser provides all the necessary details and visualizations you need to get a clear and insightful understanding of your dataset. 
+Simply upload your dataset, and let the stunning visualizations fill up your screen with valuable insights.
 
 Link: https://eda-webapp-viz.streamlit.app/
