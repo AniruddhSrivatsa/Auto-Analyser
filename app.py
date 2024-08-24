@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 import pandas as pd
 import streamlit as st
 import numpy as np
 import plotly.express as px
 import plotly.figure_factory as ff
 
-st.title("Welcome to the EDA Web-app")
+st.title("Interactive Data Exploration with Auto-Analyser")
 try:
-    uploaded_file = st.file_uploader("Choose a file",type=["csv"])
+    uploaded_file = st.file_uploader("Upload a csv file",type=["csv"])
     df=pd.read_csv(uploaded_file)
     st.dataframe(df.head())  # printing head of the dataframe
 
@@ -32,7 +31,7 @@ try:
     #identifying the numerical and categorical (object) columns
     columns=df.columns
     num_vars=df.select_dtypes(include=[np.number]) .columns  #numerical variables
-    cat_vars=df.select_dtypes(include=[np.object]) .columns#categorical variables
+    cat_vars=df.select_dtypes(include=[np.object]) .columns  #categorical variables
 
     #selecting column to be viewed
     st.write("\n\n")
@@ -66,17 +65,16 @@ try:
            st.write(df[i].value_counts())
 
            st.markdown("**-------------------------------------------------------------------------------------------------**")
-    #some categorical(object) features like name, brand name .... can have a lot of unique values, here we take only 
-    #the features with not more than 15 unique categories
+    #some categorical(object) features like name, brand name .... can have a lot of unique values, here we take only the features with not more than 15 unique categories
     for i in num_cat:  
-         if (len(df[i].unique())<=15): #feas contains all the features (both numeric and categorical) with not more than 
-                feas.append(i)          #  15 unique categories        
+         if (len(df[i].unique())<=15):
+                feas.append(i)             
 
     #to plot hist and bar graph we want everything except the categorical (object) features with more than 15 categories
     #we can get count for the finite categorical and numerical features.
     num_feas_cat=list(num_vars)+feas  #num_feas_cat is used for hist plots
     lim_num=[]
-    for i in num_vars:   #numerical features with finite values (repeated as i tampered with the variable above)
+    for i in num_vars:   #numerical features with finite values
         if (len(df[i].unique())<=15):
            lim_num.append(i)
 
@@ -124,8 +122,8 @@ try:
     cont2.write("Box_Plot")
     selection_x=cont2.selectbox("Select x coordinate (categorical):",options=feas)
     selection_y=cont2.selectbox("Select y coordinate (numerical):",options=list(set(list(num_vars)).difference(feas)))
-    box=px.box(df,x=selection_x,y=selection_y)   #list(set(list(num_vars)).difference(feas)) is used to get  
-    #features with more than 15 unique categories in numerical y coordinate
+    box=px.box(df,x=selection_x,y=selection_y)   
+    #list(set(list(num_vars)).difference(feas)) is used to get features with more than 15 unique categories in numerical y coordinate
     cont2.plotly_chart(box)
     
 
@@ -197,10 +195,8 @@ try:
     cont4.write("\n")
     
 except ValueError:
-    st.warning("Upload the dataset")
+    st.warning("Upload a csv file and Let the Exploration Begin!")
 
-
-# In[ ]:
 
 
 
