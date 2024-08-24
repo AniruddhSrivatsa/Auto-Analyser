@@ -7,7 +7,7 @@ import numpy as np
 import plotly.express as px
 import plotly.figure_factory as ff
 
-st.title("Interactive Data Exploration with Auto-Analyser")
+st.title("Automated Data Analyser")
 try:
     uploaded_file = st.file_uploader("Upload a csv file",type=["csv"])
     df=pd.read_csv(uploaded_file)
