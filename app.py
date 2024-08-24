@@ -70,8 +70,7 @@ try:
          if (len(df[i].unique())<=15):
                 feas.append(i)             
 
-    #to plot hist and bar graph we want everything except the categorical (object) features with more than 15 categories
-    #we can get count for the finite categorical and numerical features.
+    #to plot hist and bar graph we want everything except the categorical (object) features with more than 15 categories, we can get count for the finite categorical and numerical features.
     num_feas_cat=list(num_vars)+feas  #num_feas_cat is used for hist plots
     lim_num=[]
     for i in num_vars:   #numerical features with finite values
